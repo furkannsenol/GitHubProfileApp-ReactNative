@@ -1,28 +1,15 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
-  StyleSheet,
+  Text,
 } from 'react-native';
+import TabMain from './src/navigation/tab/TabMain';
 
-function App({deneme}:{deneme:string}): JSX.Element {
+function App(): JSX.Element {
 
   return (
-    <SafeAreaView>
-      
-    </SafeAreaView>
+    <TabMain/>
   );
 }
-
-const styles = StyleSheet.create({
-
-});
 
 export default App;
