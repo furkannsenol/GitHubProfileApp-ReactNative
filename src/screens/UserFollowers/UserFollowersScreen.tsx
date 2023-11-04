@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const UserNetworkScreen = () => {
+const UserFollowersScreen = () => {
   return (
     <View>
-      <Text>UserNetworkScreen</Text>
+      <Text>UserFollowersScreen</Text>
     </View>
   )
 }
 
-export default UserNetworkScreen
+export default UserFollowersScreen
