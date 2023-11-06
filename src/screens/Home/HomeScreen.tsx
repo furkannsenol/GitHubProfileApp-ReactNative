@@ -46,7 +46,7 @@ const HomeScreen: React.FC = () => {
     setPage(1);
   };
 
-  //FlatList Last Item Function
+  //FlatList Pagination Function
   const onEndReached = () => {
     if (!isAddingData && page < Math.ceil(users.length / itemsPerPage)) {
       setIsAddingData(true);
