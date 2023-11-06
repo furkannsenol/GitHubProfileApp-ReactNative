@@ -1,14 +1,14 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  Text,
-} from 'react-native';
+import { Provider } from 'react-redux';
+
 import TabMain from './src/navigation/tab/TabMain';
+import store from './src/redux/configureStore';
 
-function App(): JSX.Element {
-
+function App() {
   return (
-    <TabMain/>
+    <Provider store={store}>
+      <TabMain />
+    </Provider>
   );
 }
 
