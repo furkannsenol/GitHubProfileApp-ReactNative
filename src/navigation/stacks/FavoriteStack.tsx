@@ -1,13 +1,13 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { FavoriteParamList } from '../navigationTypes';
+import { FavoriteTabParamList } from '../navigationTypes';
 
 import UserDetailScreen from '../../screens/UserDetail/UserDetailScreen';
 import UserFollowersScreen from '../../screens/UserFollowers/UserFollowersScreen';
 import FavoriteScreen from '../../screens/Favorite/FavoriteScreen';
 
-const FavoriteStackScreens = createNativeStackNavigator<FavoriteParamList>();
+const FavoriteStackScreens = createNativeStackNavigator<FavoriteTabParamList>();
 
 const FavoriteStack = () => {
     return (

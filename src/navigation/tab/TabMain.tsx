@@ -30,24 +30,27 @@ const TabMain = () => {
                     tabBarShowLabel: false,
                     tabBarActiveTintColor: '#238636',
                     tabBarInactiveTintColor: 'black',
-                    tabBarLabelStyle:{
-                        fontSize:11,
+                    tabBarLabelStyle: {
+                        fontSize: 11,
                         //paddingBottom:10
+                    }, tabBarStyle: {
+                        height: 50
                     },
-                    tabBarStyle: {
-                        position: 'absolute',
-                        margin: 20,
-                        backgroundColor: 'white',
-                        borderRadius: 10,
-                        height: 60,
-                        //paddingBottom:5,
-                        shadowColor: '#238636',
-                        shadowOpacity: 0.06,
-                        shadowOffset: {
-                            width: 10,
-                            height: 10
-                        }
-                    },
+                    // guzel tasarım kalsın baska projede kullanırım.
+                    // tabBarStyle: {
+                    //     position: 'absolute',
+                    //     margin: 20,
+                    //     backgroundColor: 'white',
+                    //     borderRadius: 10,
+                    //     height: 60,
+                    //     //paddingBottom:5,
+                    //     shadowColor: '#238636',
+                    //     shadowOpacity: 0.06,
+                    //     shadowOffset: {
+                    //         width: 10,
+                    //         height: 10
+                    //     }
+                    // },
                     tabBarLabelPosition: 'below-icon'
                 }}
             >
@@ -55,11 +58,11 @@ const TabMain = () => {
                     name="HomeStack"
                     component={HomeStack}
                     options={{
-                        
+
                         tabBarIcon: ({ color, size }) => (
                             <MaterialCommunityIcons name="home" size={24} color={color} />
                         ),
-                        tabBarLabel:'Home'
+                        tabBarLabel: 'Home'
                     }}
                 />
                 <Tab.Screen

@@ -1,13 +1,13 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { SearchParamList } from '../navigationTypes';
+import { SearchTabParamList } from '../navigationTypes';
 
 import UserDetailScreen from '../../screens/UserDetail/UserDetailScreen';
 import UserFollowersScreen from '../../screens/UserFollowers/UserFollowersScreen';
 import SearchScreen from '../../screens/Search/SearchScreen';
 
-const SearchStackScreens = createNativeStackNavigator<SearchParamList>();
+const SearchStackScreens = createNativeStackNavigator<SearchTabParamList>();
 
 const SearchStack = () => {
     return (

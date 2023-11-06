@@ -5,8 +5,8 @@ import IUserFollowers from "../models/UserFollowersModel";
 
 export type RootStackParamList = {
     HomeStack: NavigatorScreenParams<HomeTabParamList>;
-    SearchStack: NavigatorScreenParams<SearchParamList>;
-    FavoriteStack: NavigatorScreenParams<FavoriteParamList>;
+    SearchStack: NavigatorScreenParams<SearchTabParamList>;
+    FavoriteStack: NavigatorScreenParams<FavoriteTabParamList>;
     SettingsScreen: undefined
 };
 
@@ -16,13 +16,13 @@ export type HomeTabParamList = {
     UserFollowersScreen: { userFollowers: IUserFollowers[] }
 };
 
-export type SearchParamList = {
+export type SearchTabParamList = {
     SearchScreen: undefined
     UserDetailScreen: { user: IUser }
     UserFollowersScreen: { userFollowers: IUserFollowers[] }
 };
 
-export type FavoriteParamList = {
+export type FavoriteTabParamList = {
     FavoriteScreen: undefined
     UserDetailScreen: { user: IUser }
     UserFollowersScreen: { userFollowers: IUserFollowers[] }
