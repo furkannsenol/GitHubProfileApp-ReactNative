@@ -1,4 +1,4 @@
-import { View, FlatList, Text, Image, StyleSheet, Button, ActivityIndicator, SafeAreaView } from 'react-native'
+import { View, FlatList, Text, Image, StyleSheet, Button, ActivityIndicator, SafeAreaView, StatusBar, RefreshControl } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import { Dispatch } from 'redux'
 import { useSelector, useDispatch } from 'react-redux';
@@ -8,7 +8,7 @@ import UserListItem from '../../components/UserListItemComponent';
 import SkeletonContent from 'react-native-skeleton-content-nonexpo';
 import RNPickerSelect from 'react-native-picker-select';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import Spinner from 'react-native-spinkit';
 const HomeScreen: React.FC = () => {
 
   //Redux
@@ -18,7 +18,7 @@ const HomeScreen: React.FC = () => {
 
   //FlatList - Pagination
   const flatListRef = useRef<FlatList | null>(null);
-  const itemsPerPage = 12;
+  const itemsPerPage = 9;
   const [page, setPage] = useState(1);
   const [isAddingData, setIsAddingData] = useState(false)
 
@@ -61,7 +61,9 @@ const HomeScreen: React.FC = () => {
   const renderLoader = () => {
     if (isAddingData) {
       return (
-        <ActivityIndicator size={'large'} />
+        <SafeAreaView style={{ justifyContent: 'center', alignItems: 'center', bottom: 0, marginBottom:10 }}>
+          <Spinner color='#238636' size={24} type='Wave' isVisible />
+        </SafeAreaView>
       )
     }
   }
@@ -110,17 +112,18 @@ const HomeScreen: React.FC = () => {
     )
   }
 
+
   //VIEW
   return (
     <View style={{ flex: 1 }}>
       <SkeletonContent
         containerStyle={{ flex: 1 }}
-        isLoading={isLoading }
+        isLoading={isLoading}
         layout={[
           {
             flexDirection: "row",
             justifyContent: "space-between",
-            alignItems:'center',
+            alignItems: 'center',
             margin: 20,
             children: [
               {
@@ -337,22 +340,16 @@ const HomeScreen: React.FC = () => {
                 ],
 
               },
-              
 
-            
+
+
 
             ]
           },
         ]}
       >
 
-
-        {/* <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-          <Button title='A-Z' onPress={handleSortByAZ} />
-          <Button title='Z-A' onPress={handleSortByZA} />
-          <Button title='popular' onPress={handleSortById} />
-        </View> */}
-
+        
 
         <FlatList
           data={users.slice(0, page * itemsPerPage)}
@@ -367,6 +364,7 @@ const HomeScreen: React.FC = () => {
           onEndReachedThreshold={0.1}
           ListFooterComponent={renderLoader}
           ListHeaderComponent={listHeaderComponent}
+
         />
       </SkeletonContent >
     </View >
