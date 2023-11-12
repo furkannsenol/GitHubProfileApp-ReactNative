@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { ApiServices } from '../services/ApiServices'
-import IUser from '../models/UserModel'
+import IUserFollowers from '../models/UserFollowersModel'
 
 export const getUsers = createAsyncThunk('user/getUsers', async () => {
     const data = await ApiServices.getUsersService()
@@ -9,7 +9,7 @@ export const getUsers = createAsyncThunk('user/getUsers', async () => {
 })
 
 interface IState {
-    items: IUser[]
+    items: IUserFollowers[]
     isLoading: boolean
     error: string | null | unknown
 }
@@ -40,7 +40,7 @@ export const usersSlice = createSlice({
                 state.isLoading = true
                 state.error = null
             })
-            .addCase(getUsers.fulfilled, (state, action: PayloadAction<IUser[]>) => {
+            .addCase(getUsers.fulfilled, (state, action: PayloadAction<IUserFollowers[]>) => {
                 //state.posts = state.posts.concat(action.payload)
                 state.items = action.payload
                 state.isLoading = false
