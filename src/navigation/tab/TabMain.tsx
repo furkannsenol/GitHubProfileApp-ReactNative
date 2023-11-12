@@ -29,12 +29,12 @@ const TabMain = () => {
                     tabBarHideOnKeyboard: true,
                     tabBarShowLabel: false,
                     tabBarActiveTintColor: '#238636',
-                    tabBarInactiveTintColor: 'black',
+                    tabBarInactiveTintColor: '#0D1117',
                     tabBarLabelStyle: {
                         fontSize: 11,
                         //paddingBottom:10
                     }, tabBarStyle: {
-                        height: 50
+                        height: 50,
                     },
                     // guzel tasarım kalsın baska projede kullanırım.
                     // tabBarStyle: {
