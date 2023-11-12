@@ -11,7 +11,7 @@ import { StatusBar } from 'react-native';
 function App() {
   return (
     <Provider store={store}>
-      <StatusBar barStyle={'light-content'} backgroundColor={'#238636'} />
+      <StatusBar barStyle={'light-content'} backgroundColor={'#0D1117'} />
       <TabMain />
     </Provider>
   );
