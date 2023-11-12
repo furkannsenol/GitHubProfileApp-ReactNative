@@ -12,18 +12,18 @@ export type RootStackParamList = {
 
 export type HomeTabParamList = {
     HomeScreen: undefined
-    UserDetailScreen: { user: IUser }
+    UserDetailScreen: { userName: string }
     UserFollowersScreen: { userFollowers: IUserFollowers[] }
 };
 
 export type SearchTabParamList = {
     SearchScreen: undefined
-    UserDetailScreen: { user: IUser }
+    UserDetailScreen: { userName: string }
     UserFollowersScreen: { userFollowers: IUserFollowers[] }
 };
 
 export type FavoriteTabParamList = {
     FavoriteScreen: undefined
-    UserDetailScreen: { user: IUser }
+    UserDetailScreen: { userName: string }
     UserFollowersScreen: { userFollowers: IUserFollowers[] }
 };
