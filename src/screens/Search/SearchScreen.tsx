@@ -1,69 +1,60 @@
-import { Text, View } from 'react-native'
-import React from 'react'
-import SkeletonContent from 'react-native-skeleton-content-nonexpo'
-
+import { StyleSheet, Text, View, SafeAreaView, TextInput, Button, Image, Pressable, } from 'react-native'
+import React, { useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { RootStackParamList, SearchTabParamList } from '../../navigation/navigationTypes'
+import { statusBarHeight } from '../../utils/constants'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import styles from './SearchStyles'
 
 const SearchScreen = () => {
+  const [inputUserName, setInputUserName] = useState<string>('')
+
+
+  const navigation = useNavigation<NativeStackNavigationProp<SearchTabParamList>>()
+
+  const listToDetail = () => {
+    navigation.navigate('UserDetailScreen', {
+      userName: inputUserName
+    })
+  }
+
   return (
-    <SkeletonContent
-      containerStyle={{ flex: 1 }} // Yüklenirken görünen bileşenin stilini ayarlayın
-      isLoading={true} // loading true olduğunda skeleton loader görünür, false olduğunda gerçek içerik görünür
-      layout={[
+    <SafeAreaView style={styles.mainContainer}>
+      <View style={styles.headerContainer}>
+        <Image
+          source={require('../../assets/images/GitHub-Logo.png')}
+          style={styles.image} />
+      </View>
+      <View style={styles.bodyContainer}>
 
+        <View style={styles.inputContent}>
+          <TextInput
+            value={inputUserName}
+            //autoFocus
+            onChangeText={setInputUserName}
+            placeholder='Enter a username..'
+            underlineColorAndroid='transparent'
+            returnKeyType='search'
+            multiline={false}
+            style={styles.input}
+            placeholderTextColor='#238636'
+            //disableFullscreenUI
+            onSubmitEditing={() => listToDetail()}
+          />
+          {inputUserName !== '' && (
+            <Pressable onPress={() => setInputUserName('')}>
+              <MaterialCommunityIcons name="close-circle" size={20} color="#238636" />
+            </Pressable>
+          )}
+        </View>
 
-        {
-          flexDirection: "row",
-          justifyContent: "space-between",
-          children: [
-            {
-              width: 90,
-              height: 90,
-              marginBottom: 6,
-              borderRadius: 45,
-            },
-            {
-              width: 170,
-              height: 40,
-              marginBottom: 6,
-              right: 10,
-              top: 20,
-            },
-          ],
-        },
-        { width: "70%", height: 50, marginVertical: 20 },
-        { width: "70%", height: 25, marginVertical: 5 },
-        { width: "70%", height: 25, marginVertical: 5 },
-        {
-          flexDirection: "row",
-          marginTop: 20,
-          children: [
-            {
-              width: 40,
-              height: 40,
-              borderRadius: 25,
-              marginHorizontal: 5,
-            },
-            {
-              width: 40,
-              height: 40,
-              borderRadius: 25,
-              marginHorizontal: 5,
-            },
-            {
-              width: 40,
-              height: 40,
-              borderRadius: 25,
-              marginHorizontal: 5,
-            },
-          ],
-        },
-      ]} // İçerik yerleşimi ve boyutlarını ayarlayın
-    >
-      <Text>Deneme</Text>
-      {/* Gerçek içeriğiniz buraya gelecek */}
-    </SkeletonContent >
+        <View style={styles.button}>
+          <Button title='SEARCH ' onPress={() => listToDetail()} color={'#238636'} />
+        </View>
+      </View>
+    </SafeAreaView>
   )
 }
 
 export default SearchScreen
-
