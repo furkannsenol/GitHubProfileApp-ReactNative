@@ -21,15 +21,28 @@ const getUsersService = async (): Promise<any> => {
 const getUserDetailService = async (userName: string): Promise<any> => {
     try {
         const response: AxiosResponse<IUser> = await axios.get(`${BASE_URL}/${userName}`)
-        console.log(response.data)
+        //console.log(response.data)
         return response.data
     } catch (error) {
         throw new Error("API Error:" + error)
     }
 }
 
+//https://api.github.com/users/furkannsenol/starred
+const getUserStarredCountService = async (userName: string): Promise<any> => {
+    try {
+        const response: AxiosResponse<any[]> = await axios.get(`${BASE_URL}/${userName}/starred`);
+        const starredCount: number = response.data.length;
+        return starredCount;
+    } catch (error) {
+        throw new Error("API Error:" + error)
+    }
+
+}
+
 
 export const ApiServices = {
     getUsersService,
-    getUserDetailService
+    getUserDetailService,
+    getUserStarredCountService
 }
