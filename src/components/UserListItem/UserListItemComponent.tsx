@@ -6,8 +6,10 @@ import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { RootStackParamList } from '../../navigation/navigationTypes'
 import styles from './UserListItemStyles'
+import IUserFollowers from '../../models/UserFollowersModel'
+
 interface IProps {
-  user: IUser
+  user: IUserFollowers
 }
 
 const UserListItem: React.FC<IProps> = ({ user }) => {
