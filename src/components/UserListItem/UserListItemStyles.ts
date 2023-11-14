@@ -1,14 +1,17 @@
 import { StyleSheet } from "react-native";
+import { windowWidth } from "../../utils/constants";
 
 const styles = StyleSheet.create({
     userContainer: {
-        flex: 1,
+        //flex: 1,
         flexDirection: 'column',
-        alignItems: 'flex-start',
-        justifyContent: 'space-between',
-        paddingHorizontal: 18,
-        paddingVertical: 10
-
+        alignItems: 'center',
+        justifyContent: 'center',
+        //paddingHorizontal: 18,
+        // paddingVertical: 10,
+        marginVertical:8,
+        width: windowWidth / 3,
+        //backgroundColor:'yelow'
     },
     userImage: {
         width: 100,
