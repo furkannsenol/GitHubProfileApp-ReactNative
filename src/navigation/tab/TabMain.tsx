@@ -26,7 +26,7 @@ const TabMain = () => {
                 }}
                 screenOptions={{
                     headerShown: false,
-                    tabBarHideOnKeyboard: true,
+                    tabBarHideOnKeyboard: false,
                     tabBarShowLabel: false,
                     tabBarActiveTintColor: '#238636',
                     tabBarInactiveTintColor: '#0D1117',
